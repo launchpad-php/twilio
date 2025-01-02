@@ -1,0 +1,17 @@
+{
+    "name": "launchpad/twilio",
+    "description": "Launchpad wrapper for Twilio API",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Launchpad\\Twilio\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.0",
+        "twilio/sdk": "^8.3"
+    }
+}
