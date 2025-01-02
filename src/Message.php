@@ -8,7 +8,7 @@ use Twilio\Rest\Client;
 class Message
 {
     /**
-     * Send SMS
+     * Send SMS via Twilio
      * @throws TwilioException
      */
     public function send($number, $body ): void
