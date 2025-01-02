@@ -2,11 +2,15 @@
 
 namespace Launchpad\Twilio;
 
+use Twilio\Exceptions\TwilioException;
 use Twilio\Rest\Client;
 
 class Message
 {
-    public function send( $number, $body ): bool
+    /**
+     * @throws TwilioException
+     */
+    public function send($number, $body ): void
     {
         try{
             $client = new Client( $_ENV['twilio_sid'], $_ENV['twilio_token'] );
@@ -14,14 +18,9 @@ class Message
             die( $e->getMessage() );
         }
 
-        try{
-            $client->messages->create( $number, [
-                'from'      => $_ENV['twilio_sender'],
-                'body'      => $body
-            ]);
-            return true;
-        }catch( \Exception $e ){
-            return false;
-        }
+        $client->messages->create( $number, [
+            'from'      => $_ENV['twilio_sender'],
+            'body'      => $body
+        ]);
     }
 }
